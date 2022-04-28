@@ -1,0 +1,42 @@
+# funcoes do meu OK
+
+menu()
+{
+escolha=$( dialog --stdout                                        \
+   --title 'Automatizador de Proxychayns'                          \
+   --menu 'Escolha as opções:'  \
+   0 0 0                                     \
+   Instalar       'Instala o pacote proxy4'           \
+   configurar      'Configurar lista de proxy'               \
+   Sair  'Sair')
+}
+menu
+
+# Instalar 
+opcoespx()
+{
+dialog                                           \
+   --title 'Tipo de proxy'                            \
+   --radiolist 'Quantas listas de proxy'  \
+   0 0 0                                         \
+   HTTP  'Maior seguranca e facilidade'      on                \
+   SOCKS4 'mais de 1 ano'  off               \
+   SOCKS5       'mais de 3 anos' off
+}
+
+
+if [ "$escolha" = 'Instalar' ]
+then  
+   echo "voce escolhei instalar bb"
+fi
+
+if [ "$escolha" = 'configurar' ]
+then  
+   opcoespx
+fi
+
+if [ "$escolha" = 'Sair' ]
+then  
+   exit
+fi
+
